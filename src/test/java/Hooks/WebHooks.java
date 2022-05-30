@@ -5,6 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.OutputType;
 
@@ -18,7 +19,13 @@ public class WebHooks {
     }
 
     @Attachment(value = "Page screenshot", type = "image/png")
-    public static byte[] screenshot() {
+        public static byte[] screenshot() {
         return Selenide.screenshot(OutputType.BYTES);
+    }
+
+    @AfterEach
+    public void tearUp() {
+        screenshot();
+        Selenide.closeWindow();
     }
 }

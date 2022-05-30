@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.switchTo;
 import static java.time.zone.ZoneRulesProvider.refresh;
 
 public class TaskSteps extends TaskElems {
-        @Step("Открываем окно заведения бага и пишем название тест-кейса")
-        public static void setMainName() {
-            Configuration.holdBrowserOpen = true;
-            buttonCreateTask.shouldBe(Condition.visible, Duration.ofSeconds(60)).click();
+    @Step("Открываем окно заведения бага и пишем название тест-кейса")
+    public static void setMainName() {
+        Configuration.holdBrowserOpen = true;
+        buttonCreateTask.shouldBe(Condition.visible, Duration.ofSeconds(60)).click();
             mainTheme.setValue("New Bug 01");
         }
 

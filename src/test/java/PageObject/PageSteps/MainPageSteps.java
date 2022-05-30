@@ -9,6 +9,9 @@ import java.time.Duration;
 public class MainPageSteps extends MainPageElems {
     @Step("Переходим в раздел \"Проекты\"")
     public static void goToTasks() {
+        buttonProjects.shouldBe(Condition.visible, Duration.ofSeconds(60)).click();
+        dropdownMenu.shouldBe(Condition.visible, Duration.ofSeconds(60)).click();
+        buttonTestProject.shouldBe(Condition.visible, Duration.ofSeconds(60)).click();
         buttonTasks.shouldBe(Condition.visible, Duration.ofSeconds(60)).click();
     }
 

@@ -8,7 +8,7 @@ mvn allure:serve
 mvn clean
 
 ## Входные данные
-задаются в файле test.properties
+задаются в файле application.properties
 
 ## Запуск одного теста
 mvn clean -Dtest=ClassName#TestName test,

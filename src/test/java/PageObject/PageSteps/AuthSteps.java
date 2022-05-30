@@ -3,6 +3,7 @@ package PageObject.PageSteps;
 import PageObject.PageElements.LoginElems;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
+import org.junit.Assert;
 
 import java.time.Duration;
 import static Configuration.Configuration.getConfigurationValue;
@@ -23,9 +24,7 @@ public class AuthSteps extends LoginElems {
                 .click();
         inputPassword.setValue(getConfigurationValue("password"));
         inputPassword.pressEnter();
-        error.shouldNotBe(Condition.visible);
-        buttonProjects.shouldBe(Condition.visible, Duration.ofSeconds(60)).click();
-        dropdownMenu.shouldBe(Condition.visible, Duration.ofSeconds(60)).click();
-        buttonTestProject.shouldBe(Condition.visible, Duration.ofSeconds(60)).click();
+        System.out.println(accessAuth.getAttribute("title"));
+        Assert.assertEquals("Пользовательский профиль для nchulykov", accessAuth.getAttribute("title"));
     }
 }
